@@ -1,0 +1,60 @@
+<div class="page">
+  <h1 id="page-title" style="font-weight: 700">
+    Movie Store
+  </h1>
+  <div id="page-route">
+    <a class="page-route-button" routerLink="/firstpage">首页</a>
+    <a class="page-route-button" routerLink="/movielist">影库</a>  
+  </div>
+  <div class="main-line">
+    <div class="left-line">
+      <div id="left-content">
+        <div class="left-list">
+          热门排行
+        </div>
+        <div class="left-list" *ngFor="let topmovie of selectedMovies"><a id="left-font">{{topmovie.MovieName}}</a></div>
+        <div class="left-list">
+          热门影评
+        </div>
+        <div class="left-list"><a id="left-font">一场美丽的邂逅</a></div>
+        <div class="left-list"><a id="left-font">他山之石，可以攻玉</a></div>
+        <div class="left-list"><a id="left-font">唱给白鹿原的歌</a></div>
+        <div class="left-list"><a id="left-font">美丽星期天</a></div>        
+      </div>
+      <div id="main-content">
+        <form class="form-inline" id="select">
+          <label for="selectStyle">电影类型:</label>
+          <select class="form-control" #selectStyle>
+            <option value="any">不限</option>
+            <option value="history">历史</option>
+            <option value="love">爱情</option>
+          </select>
+          <label for="selectTime">上映时间:</label>
+          <select class="form-control" #selectTime>
+            <option value="any">不限</option>
+            <option value="2015-2018">2015至今</option>
+            <option value="2010-2015">2010-2014</option>
+            <option value="2000-2010">2000-2010</option>
+            <option value="1950-2000">2000以前</option>
+          </select>
+          <button class="btn btn-default" (click)="selectMovies(selectStyle.value,selectTime.value);selectedStyle=[];selectedTime=[]">搜索</button>
+        </form>
+        <div class="movie-display" *ngFor="let selectedmovie of selectedMovies">
+          <a id="display" [routerLink]="['/movie',selectedmovie.Id]">
+            <img [src]="selectedmovie.ImgUrl" width=150 height=210>
+            <div>
+              片名：{{selectedmovie.MovieName}}<br/>
+              导演：{{selectedmovie.MovieDirector}}<br/>
+              主演：{{selectedmovie.MovieActors[0]}}、{{selectedmovie.MovieActors[1]}}、{{selectedmovie.MovieActors[2]}}
+            </div>
+          </a>
+        </div>
+      </div>
+    </div> 
+  </div>
+  <div class="clear" id="footer">
+    Enjoy yourself! 
+  </div>
+
+</div>
+

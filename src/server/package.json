@@ -1,0 +1,20 @@
+{
+  "name": "uid",
+  "version": "1.0.0",
+  "description": "uid-server",
+  "main": "index.js",
+  "author": "vivian",
+  "dependencies": {
+    "@types/koa": "^2.0.38",
+    "@types/koa-logger": "^2.0.2",
+    "@types/koa-router": "^7.0.21",
+    "@types/node": "^7.0.5",
+    "@types/sequelize": "^4.0.42",
+    "koa": "^2.0.1",
+    "koa-body": "^1.6.0",
+    "koa-logger": "^2.0.1",
+    "koa-router": "^5.4.0",
+    "mysql": "^2.13.0",
+    "sequelize": "^3.30.2"
+  }
+}

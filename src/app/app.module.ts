@@ -1,30 +1,39 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
- 
-import { AppComponent }  from './app.component';
-import { MovieService } from './movie.service';
-import { SelectMovieComponent } from './select-movie.component';
-import { MovieRecommendComponent } from './movie-recommend.component';
-import { AppointedMoviesComponent } from './appointed-movies.component';
+import { AppRoutingModule } from './app-routing.module';
 
-RouterModule.forRoot([
-  {
-    path:'appointed',
-    component: AppointedMoviesComponent
-  } 
-])
+import { MovieService } from './movie.service'; 
+import { AppComponent }  from './app.component';
+
+import { LogInComponent } from './log-page/log-in.component';
+import { SelectMovieComponent } from './display/select-movie.component';
+import { MovieRecommendComponent } from './first-page/movie-recommend.component';
+import { MovieDetailComponent } from './detail/movie-detail.component';
+import { BuyMovieComponent } from './buy/buy-movie.component';
+import { NoPageComponent } from './wrong-page/no-page.component';
+
+import { ValidSeat } from './seat-style/valid-seat.component';
+import { SelectedSeat } from './seat-style/selected-seat.component';
+import { InvalidSeat } from './seat-style/invalid-seat.component'; 
+
 @NgModule({
   imports:      [ BrowserModule,
-                  FormsModule 
+                  FormsModule,
+                  AppRoutingModule
                 ],
   declarations: [ AppComponent,
+                  LogInComponent,
                   SelectMovieComponent,
                   MovieRecommendComponent,
-                  AppointedMoviesComponent
+                  MovieDetailComponent,
+                  BuyMovieComponent,
+                  NoPageComponent,
+                  ValidSeat,
+                  SelectedSeat,
+                  InvalidSeat
                 ],
   bootstrap:    [ AppComponent ],
   providers:    [ MovieService ]
 })
-export class AppModule { }
+export class AppModule {}

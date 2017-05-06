@@ -1,0 +1,49 @@
+<div class="page">
+  <h1 id="page-title" style="font-weight: 700">
+    Movie Store
+  </h1>
+  <div id="page-route">
+      <a class="page-route-button" routerLink="/firstpage">首页</a>
+      <a class="page-route-button" routerLink="/movielist">影库</a>
+  </div>
+  <div class="main-line">
+    <div class="left-line">
+      <div id="left-content">
+        <div class="left-list">
+          热门排行
+        </div>
+        <div class="left-list"><a id="left-font">Here are some movies</a></div>
+        <div class="left-list">
+          热门影评
+        </div>
+        <div class="left-list"><a id="left-font">一场美丽的邂逅</a></div>
+        <div class="left-list"><a id="left-font">他山之石，可以攻玉</a></div>
+        <div class="left-list"><a id="left-font">唱给白鹿原的歌</a></div>
+        <div class="left-list"><a id="left-font">美丽星期天</a></div>
+      </div>
+      <div id="main-content">
+        <div *ngIf="movie">
+          <div id="movie-img">
+            <img [src]="movie.ImgUrl" width=200 height=250/>
+          </div>
+          <div id="movie-detail">
+            <div>片名：{{movie.MovieName}}</div>
+            <div>导演：{{movie.MovieDirector}}</div>
+            <div>主演：{{movie.MovieActors[0]}}、{{movie.MovieActors[1]}}、{{movie.MovieActors[2]}}</div>
+            <div>简介：</div>
+            <p>
+              哥特式艺术，又译作哥德式艺术，为一种源自欧洲法国的艺术风格，该风格始于12世纪的法国，盛行于13世纪，至14世纪末期，其风格逐渐大众化和自然化，形成国际哥特风格，直至15世纪，因为欧洲文艺复兴时代来临而迅速没落。不过，在北欧地区，这种风格仍延续一段相当长时间。该风格在18世纪重新被肯定，“哥特式复兴”运动推崇中世纪的阴暗情调。在19世纪之后仍偶而被应用。早期的哥特式雕塑和绘画都是巨大建筑的一部分，晚期的哥特式雕刻则追求平面装饰性的效果，不再追求结实和简洁的处理。
+            </p>
+          </div>  
+        <div class="clear" id="bottom-button">
+          <button id="button">赞一个</button>
+          <button id="button" [routerLink]="['/buy',movie.Id]">购票</button>
+          <button id="button" (click)="goBack()">返回</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="clear" id="footer">
+    Enjoy yourself! 
+  </div>
+</div>
