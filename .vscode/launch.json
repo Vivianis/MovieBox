@@ -1,23 +1,17 @@
 {
-    // Use IntelliSense to learn about possible Node.js debug attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    // 使用 IntelliSense 以学习相关的 Node.js 调试属性。
+    // 悬停以查看现有属性的描述。
+    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
         {
             "type": "node",
             "request": "launch",
             "name": "启动程序",
-            "program": "${workspaceRoot}/serve\"",
-            "outFiles": []
-        },
-        {
-            "type": "node",
-            "request": "attach",
-            "name": "附加到进程",
-            "address": "localhost",
-            "port": 5858,
-            "outFiles": []
+            "program": "${workspaceRoot}/src/server/dist/app.js",
+            "outFiles": [
+                "${workspaceRoot}/src/server/dist/**/*.js"
+            ]
         }
     ]
 }
