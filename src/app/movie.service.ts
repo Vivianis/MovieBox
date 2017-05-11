@@ -1,14 +1,35 @@
 import { Injectable } from '@angular/core';
+import { Headers, Http, Response } from '@angular/http';
+
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/toPromise';
 
 import { MOVIE } from './movie';
-import { MOVIES } from './mock-movies';
 
 @Injectable()
 export class MovieService {
+    private moviesUrl = 'api/movies';
+
+    constructor(private http: Http){}
+
     getMovies(): Promise<MOVIE[]> {
-        return Promise.resolve(MOVIES);
+        return this.http.get(this.moviesUrl)
+                   .toPromise()
+                   .then(response => response.json().data as MOVIE[])
+                   .catch(this.handleError);
     }
-    getMovie(Id:number): Promise<MOVIE> {
-        return this.getMovies().then(movies => movies.find(movie => movie.Id === Id));
+    private handleError(error: any): Promise<any> {
+        console.error('An error occurred', error);
+        return Promise.reject(error.message || error);
     }
+    getMovie(id: number): Promise<MOVIE> {
+      const url = `${this.moviesUrl}/${id}`;
+      return this.http.get(url)
+        .toPromise()
+        .then(response => response.json().data as MOVIE)
+        .catch(this.handleError);
+}
+
 }
