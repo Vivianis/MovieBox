@@ -17,7 +17,7 @@ export class MovieService {
     getMovies(): Promise<MOVIE[]> {
         return this.http.get(this.moviesUrl)
             .toPromise()
-            .then(response => response.json().data as MOVIE[])
+            .then(response => response.json() as MOVIE[])
             .catch(this.handleError);
     }
     private handleError(error: any): Promise<any> {
