@@ -11,7 +11,7 @@ import { NoPageComponent } from './wrong-page/no-page.component';
 
 const appRoutes: Routes =[
   { path: 'buy/:id' , component: BuyMovieComponent },
-  { path: 'movie/:Id' , component: MovieDetailComponent },
+  { path: 'movie/:id' , component: MovieDetailComponent },
   { path: 'movielist', component: SelectMovieComponent },
   { path: 'firstpage', component: MovieRecommendComponent },
   { path: 'moviestore', component: AppComponent },

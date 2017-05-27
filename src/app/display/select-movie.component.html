@@ -40,12 +40,12 @@
           <button class="btn btn-default" (click)="selectMovies(selectStyle.value,selectTime.value);selectedStyle=[];selectedTime=[]">搜索</button>
         </form>
         <div class="movie-display" *ngFor="let selectedmovie of selectedMovies">
-          <a id="display" [routerLink]="['/movie',selectedmovie.Id]">
-            <img [src]="selectedmovie.ImgUrl" width=150 height=210>
+          <a id="display" [routerLink]="['/movie',selectedmovie.id]">
+            <img [src]="selectedmovie.image_url" width=150 height=210>
             <div>
-              片名：{{selectedmovie.MovieName}}<br/>
-              导演：{{selectedmovie.MovieDirector}}<br/>
-              主演：{{selectedmovie.MovieActor1}}、{{selectedmovie.MovieActor2}}、{{selectedmovie.MovieActor3}}
+              片名：{{selectedmovie.movie_name}}<br/>
+              导演：{{selectedmovie.movie_director}}<br/>
+              主演：{{selectedmovie.movie_actor1}}、{{selectedmovie.movie_actor2}}、{{selectedmovie.movie_actor3}}
             </div>
           </a>
         </div>

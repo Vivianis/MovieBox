@@ -26,12 +26,12 @@
           电影推荐
         </h4>
         <div class="movie-display" *ngFor="let topmovie of topMovies">
-          <a id="display" [routerLink]="['/movie',topmovie.Id]">
-            <img [src]="topmovie.ImgUrl" width=150 height=210>
+          <a id="display" [routerLink]="['/movie',topmovie.id]">
+            <img [src]="topmovie.image_url" width=150 height=210>
             <div>
-              片名：{{topmovie.MovieName}}<br/>
-              导演：{{topmovie.MovieDirector}}<br/>
-              主演：{{topmovie.MovieActor1}}、{{topmovie.MovieActor2}}、{{topmovie.MovieActor3}}
+              片名：{{topmovie.movie_name}}<br/>
+              导演：{{topmovie.movie_director}}<br/>
+              主演：{{topmovie.movie_actor1}}、{{topmovie.movie_actor2}}、{{topmovie.movie_actor3}}
             </div>
           </a>
         </div>

@@ -24,12 +24,12 @@
       <div id="main-content">
         <div *ngIf="movie">
           <div id="movie-img">
-            <img [src]="movie.ImgUrl" width=200 height=250/>
+            <img [src]="movie.image_url" width=200 height=250/>
           </div>
           <div id="movie-detail">
-            <div>片名：{{movie.MovieName}}</div>
-            <div>导演：{{movie.MovieDirector}}</div>
-            <div>主演：{{movie.MovieActor1}}、{{movie.MovieActor2}}、{{movie.MovieActor3}}</div>
+            <div>片名：{{movie.movie_name}}</div>
+            <div>导演：{{movie.movie_director}}</div>
+            <div>主演：{{movie.movie_actor1}}、{{movie.movie_actor2}}、{{movie.movie_actor3}}</div>
             <div>简介：</div>
             <p>
               哥特式艺术，又译作哥德式艺术，为一种源自欧洲法国的艺术风格，该风格始于12世纪的法国，盛行于13世纪，至14世纪末期，其风格逐渐大众化和自然化，形成国际哥特风格，直至15世纪，因为欧洲文艺复兴时代来临而迅速没落。不过，在北欧地区，这种风格仍延续一段相当长时间。该风格在18世纪重新被肯定，“哥特式复兴”运动推崇中世纪的阴暗情调。在19世纪之后仍偶而被应用。早期的哥特式雕塑和绘画都是巨大建筑的一部分，晚期的哥特式雕刻则追求平面装饰性的效果，不再追求结实和简洁的处理。
@@ -37,7 +37,7 @@
           </div>  
         <div class="clear" id="bottom-button">
           <button id="button">赞一个</button>
-          <button id="button" [routerLink]="['/buy',movie.Id]">购票</button>
+          <button id="button" [routerLink]="['/buy',movie.id]">购票</button>
           <button id="button" (click)="goBack()">返回</button>
         </div>
       </div>

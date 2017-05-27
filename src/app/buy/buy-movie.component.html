@@ -63,10 +63,10 @@
         </div>
         <div *ngIf="buymovie" id="buy-msg">
           <h4>购买信息</h4>
-          <div><img [src]="buymovie.ImgUrl" width="200" height="250"/></div>
-          <div>片名：{{buymovie.MovieName}}</div>
-          <div>导演：{{buymovie.MovieDirector}}</div>
-          <div>主演：{{buymovie.MovieActors[0]}}、{{buymovie.MovieActors[1]}}、{{buymovie.MovieActors[2]}}</div>
+          <div><img [src]="buymovie.image_url" width="200" height="250"/></div>
+          <div>片名：{{buymovie.movie_name}}</div>
+          <div>导演：{{buymovie.movie_director}}</div>
+          <div>主演：{{buymovie.movie_actor1}}、{{buymovie.movie_actor2}}、{{buymovie.movie_actor3}}</div>
           <div>地点：国际IMAX电影城 {{place.value}}</div>
           <div>时间：{{date.value}} {{time.value}}</div>
           <div>已选座次：

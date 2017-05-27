@@ -27,7 +27,7 @@ export class SelectMovieComponent implements OnInit {
         }
         else{
             for(let selectstyle of this.movies){
-                if(selectstyle.MovieStyle==moviestyle){
+                if(selectstyle.movie_style==moviestyle){
                     this.selectedStyle.push(selectstyle);              
                 }
             }
@@ -37,16 +37,16 @@ export class SelectMovieComponent implements OnInit {
         }
         else{
             for(let selecttime of this.selectedStyle){
-                if((movietime=='1950-2000')&&(selecttime.ShowTime<'2000-01-01')&&(selecttime.ShowTime>='1950=01=01')){
+                if((movietime=='1950-2000')&&(selecttime.show_time<'2000-01-01')&&(selecttime.show_time>='1950=01=01')){
                     this.selectedTime.push(selecttime);
                 }
-                else if((movietime=='2000-2010')&&(selecttime.ShowTime<'2010-01-01')&&(selecttime.ShowTime>='2000-01-01')){
+                else if((movietime=='2000-2010')&&(selecttime.show_time<'2010-01-01')&&(selecttime.show_time>='2000-01-01')){
                     this.selectedTime.push(selecttime);
                 }
-                else if((movietime=='2010-2015')&&(selecttime.ShowTime<'2015-01-01')&&(selecttime.ShowTime>='2010-01-01')){
+                else if((movietime=='2010-2015')&&(selecttime.show_time<'2015-01-01')&&(selecttime.show_time>='2010-01-01')){
                     this.selectedTime.push(selecttime);
                 }
-                else if((movietime=='2015-2018')&&(selecttime.ShowTime<'2018-01-01')&&(selecttime.ShowTime>='2015-01-01')){
+                else if((movietime=='2015-2018')&&(selecttime.show_time<'2018-01-01')&&(selecttime.show_time>='2015-01-01')){
                     this.selectedTime.push(selecttime);
                 }
             }
