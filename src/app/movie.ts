@@ -2,8 +2,10 @@ export class MOVIE {
     Id: number;
     MovieName: string;
     MovieDirector: string;
-    MovieActors: string[];
+    MovieActor1: string;
+    MovieActor2: string;
+    MovieActor3: string;
     MovieStyle: string;
-    ShowTime: string;
+    ShowTime: Date;
     ImgUrl: string
 }
