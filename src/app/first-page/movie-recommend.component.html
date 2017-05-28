@@ -12,7 +12,7 @@
         <div class="left-list">
           热门排行
         </div>
-        <div class="left-list" *ngFor="let topmovie of topMovies"><a id="left-font" type="color: white">{{topmovie.MovieName}}</a></div>
+        <div class="left-list" *ngFor="let topmovie of topMovies"><a id="left-font" [routerLink]="['/movie',topmovie.id]">{{topmovie.movie_name}}</a></div>
         <div class="left-list">
           热门影评
         </div>

@@ -10,13 +10,18 @@ import { OnInit } from '@angular/core';
     templateUrl: './select-movie.component.html' 
 })
 export class SelectMovieComponent implements OnInit {
-    movies: MOVIE[];
-    selectedStyle: MOVIE[] =[];
-    selectedTime: MOVIE[] =[];
-    selectedMovies: MOVIE[] =[];
+    movies: MOVIE[] = [];
+    selectedStyle: MOVIE[] = [];
+    selectedTime: MOVIE[] = [];
+    selectedMovies: MOVIE[] = [];
+    topMovies: MOVIE[] = [];
     constructor(private movieService: MovieService){}
     getMovies(): void {
-        this.movieService.getMovies().then(movies => {this.movies = movies; this.selectedMovies = movies })
+        this.movieService.getMovies()
+        .then(movies => {this.movies = movies;
+                         this.selectedMovies = movies; 
+                         this.topMovies = movies.slice(0, 5)
+        })
     }
     ngOnInit(){
         this.getMovies()

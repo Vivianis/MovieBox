@@ -19,6 +19,7 @@ export class BuyMovieComponent implements OnInit {
     seatNum: number[][] = [];
     selectedNum: number[][] = [];
     selected: boolean;
+    topMovies: MOVIE[] = [];
     constructor(
         private movieservice: MovieService,
         private route: ActivatedRoute,
@@ -36,6 +37,12 @@ export class BuyMovieComponent implements OnInit {
         this.movieservice.getMovie(+params['id']))
         .subscribe(buymovie => this.buymovie = buymovie);
         this.initSeats();
+        this.getmovies();
+    }
+    getmovies(): void{
+        this.movieservice.getMovies()
+        .then(movies => {this.topMovies = movies.slice(0,5)
+        })
     }
     selectseat(line: number,seat: number){
         this.selected = true;
@@ -52,6 +59,8 @@ export class BuyMovieComponent implements OnInit {
                 }
             }
         }
+        alert("确定购买吗？");
+        alert("购买成功！");
     }
     goBack(): void{
         this.location.back();
