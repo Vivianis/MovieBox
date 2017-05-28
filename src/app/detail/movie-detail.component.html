@@ -36,7 +36,7 @@
             </p>
           </div>  
         <div class="clear" id="bottom-button">
-          <button id="button">赞一个</button>
+          <button id="button" (click)="support()">赞一个</button>
           <button id="button" [routerLink]="['/buy',movie.id]">购票</button>
           <button id="button" (click)="goBack()">返回</button>
         </div>

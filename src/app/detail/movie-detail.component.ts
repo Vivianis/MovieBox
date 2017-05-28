@@ -25,6 +25,10 @@ export class MovieDetailComponent implements OnInit {
         .subscribe(movie => this.movie = movie);
         
     }
+    support(): void{
+        this.movieService.storeDegree(this.movie.id, this.movie.love_degree+1);
+        alert("点赞成功！");
+    }
     goBack(): void {
         this.location.back();
     }

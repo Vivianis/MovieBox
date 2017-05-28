@@ -1,6 +1,7 @@
 export class MOVIE {
     id: number;
     movie_name: string;
+    love_degree: number;
     movie_director: string;
     movie_actor1: string;
     movie_actor2: string;

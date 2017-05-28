@@ -31,5 +31,14 @@ export class MovieService {
             .then(response => response.json() as MOVIE)
             .catch(this.handleError);
     }
+    storeDegree(movieID: number, degree: number): void {
+        const url = `${this.moviesUrl}/${movieID}/degree/${degree}`;
+        this.http.post(url, {})
+            .toPromise()
+            .then(()=>{
+                console.log();
+            })
+            .catch(this.handleError);
+    }
 
 }
