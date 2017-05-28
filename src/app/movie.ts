@@ -8,5 +8,6 @@ export class MOVIE {
     movie_actor3: string;
     movie_style: string;
     show_time: string;
-    image_url: string
+    image_url: string;
+    movie_instr: Text;
 }
