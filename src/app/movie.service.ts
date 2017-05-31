@@ -7,6 +7,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 
 import { MOVIE } from './movie';
+import { SEAT} from './seat';
 
 @Injectable()
 export class MovieService {
@@ -35,10 +36,21 @@ export class MovieService {
         const url = `${this.moviesUrl}/${movieID}/degree/${degree}`;
         this.http.post(url, {})
             .toPromise()
-            .then(()=>{
-                console.log();
-            })
+            .then(()=>{})
             .catch(this.handleError);
     }
-
+    storeSeat(seatID: number): void {
+        const url = `${this.moviesUrl}/seat/${seatID}`;
+        this.http.post(url, {})
+            .toPromise()
+            .then(()=>{})
+            .catch(this.handleError);
+    }
+    getSeat(): Promise<SEAT[]> {
+        const url = `${this.moviesUrl}/getseat`;
+        return this.http.get(url)
+                   .toPromise()
+                   .then(response => response.json() as SEAT[])
+                   .catch(this.handleError);
+    }
 }

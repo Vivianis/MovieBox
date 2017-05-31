@@ -4,6 +4,7 @@ import { Location } from '@angular/common';
 
 import { MovieService } from '../movie.service';
 import { MOVIE } from '../movie';
+import { SEAT } from '../seat';
 import { ValidSeat } from '../seat-style/valid-seat.component';
 
 import 'rxjs/add/operator/switchMap';
@@ -15,11 +16,12 @@ import 'rxjs/add/operator/switchMap';
 export class BuyMovieComponent implements OnInit {
     buymovie: MOVIE;
     lineNum: number[] = [1,2,3,4,5,6,7];
-    rankNum: number[] = [1,2,3,4,5,6,7,9,10];
+    rankNum: number[] = [1,2,3,4,5,6,7];
     seatNum: number[][] = [];
     selectedNum: number[][] = [];
     selected: boolean;
     topMovies: MOVIE[] = [];
+    seats: SEAT[] = [];
     constructor(
         private movieservice: MovieService,
         private route: ActivatedRoute,
@@ -27,7 +29,18 @@ export class BuyMovieComponent implements OnInit {
     ){}
     initSeats(){
         for(let i of this.lineNum){
-            this.seatNum[i-1] = [0,0,0,0,0,0,0,];
+            this.seatNum[i-1] = [0,0,0,0,0,0,0];
+        }
+        this.movieservice.getSeat()
+                         .then(seats => {
+                             this.seats = seats
+                         });
+        let s = 0;
+        for(let m of this.lineNum){
+            for(let n of this.rankNum) {
+                this.seatNum[m][n] = this.seats[s].seat_state;
+                s++;
+            }    
         }
         this.selected = false; 
     }
@@ -39,9 +52,9 @@ export class BuyMovieComponent implements OnInit {
         this.initSeats();
         this.getmovies();
     }
-    getmovies(): void{
+    getmovies(): void {
         this.movieservice.getMovies()
-        .then(movies => {this.topMovies = movies.slice(0,5)
+                         .then(movies => {this.topMovies = movies.slice(0,5)
         })
     }
     selectseat(line: number,seat: number){
@@ -56,6 +69,8 @@ export class BuyMovieComponent implements OnInit {
             for(let r of this.rankNum){
                 if(this.seatNum[l-1][r-1]==1){
                     this.seatNum[l-1][r-1]=2;
+                    let s = (l-1)*7+r  /*存座位信息*/
+                    this.movieservice.storeSeat(s);
                 }
             }
         }
